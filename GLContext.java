@@ -1,13 +1,13 @@
 package com.github.opengrabeso.jaagl;
 
+import com.github.opengrabeso.jaagl.jogl.JoGL;
+
 public abstract class GLContext {
-    private static GL currentGL;
 
     public static GL getCurrentGL() {
-        return GLContext.currentGL;
-    }
+        // TODO: avoid whenever possible, pass GL instead
+        com.jogamp.opengl.GL currentGL = com.jogamp.opengl.GLContext.getCurrentGL();
 
-    public static void setCurrentGL(GL currentGL) {
-        GLContext.currentGL = currentGL;
+        return JoGL.wrap(currentGL);
     }
 }

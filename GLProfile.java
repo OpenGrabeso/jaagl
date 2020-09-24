@@ -1,7 +1,21 @@
 package com.github.opengrabeso.jaagl;
 
-public interface GLProfile {
-    boolean isGL3();
+public class GLProfile {
+    com.jogamp.opengl.GLProfile glProfile;
 
-    boolean isGL2();
+    GLProfile(com.jogamp.opengl.GLProfile glProfile) {
+        this.glProfile = glProfile;
+    }
+
+    public boolean isGL3() {
+        return glProfile.isGL3();
+    }
+
+    public boolean isGL2() {
+        return glProfile.isGL2();
+    }
+
+    static public GLProfile wrap(com.jogamp.opengl.GLProfile glProfile) {
+        return new GLProfile(glProfile);
+    }
 }

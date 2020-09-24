@@ -63,6 +63,12 @@ public interface GL {
 
     int GL_UNPACK_ALIGNMENT();
 
+    int GL_UNPACK_SKIP_ROWS();
+
+    int GL_UNPACK_SKIP_PIXELS();
+
+    int GL_UNPACK_ROW_LENGTH();
+
     void glPixelStorei(int gl_unpack_alignment, int i);
 
     int GL_UNSIGNED_BYTE();

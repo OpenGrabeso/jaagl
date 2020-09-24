@@ -1,9 +1,10 @@
 package com.github.opengrabeso.jaagl.jogl;
 import com.github.opengrabeso.jaagl.*;
+import com.jogamp.opengl.GLException;
 
 import java.nio.ByteBuffer;
 
-public class JoGL implements GL {
+public abstract class JoGL implements GL {
     com.jogamp.opengl.GL gl;
 
     JoGL(com.jogamp.opengl.GL gl) {
@@ -15,8 +16,9 @@ public class JoGL implements GL {
             return new JoGL3((com.jogamp.opengl.GL3)gl);
         } else if (gl instanceof com.jogamp.opengl.GL2) {
             return new JoGL2((com.jogamp.opengl.GL2)gl);
+        } else {
+            throw new UnsupportedOperationException("GL2 or GL3 expected");
         }
-        return new JoGL(gl);
     }
 
     public static GL2 wrap(com.jogamp.opengl.GL2 gl) {
@@ -25,10 +27,6 @@ public class JoGL implements GL {
 
     public static GL3 wrap(com.jogamp.opengl.GL3 gl) {
         return new JoGL3(gl);
-    }
-
-    public static GL2GL3 wrap(com.jogamp.opengl.GL2GL3 gl) {
-        return new JoGL2GL3(gl);
     }
 
     public GL2ES2 jogl() {
@@ -43,16 +41,6 @@ public class JoGL implements GL {
     @Override
     public GL3 getGL3() {
         return null;
-    }
-
-    @Override
-    public GL2GL3 getGL2GL3() {
-        return null;
-    }
-
-    @Override
-    public boolean isGL2GL3() {
-        return false;
     }
 
     @Override
@@ -192,7 +180,7 @@ public class JoGL implements GL {
 
     @Override
     public void glTexParameteri(int type, int name, int value) {
-
+        gl.glTexParameteri(type, name, value);
     }
 
     @Override
@@ -202,7 +190,7 @@ public class JoGL implements GL {
 
     @Override
     public void glGetIntegerv(int gl_max_texture_size, int[] size, int i) {
-
+        gl.glGetIntegerv(gl_max_texture_size, size, i);
     }
 
     @Override
@@ -211,8 +199,23 @@ public class JoGL implements GL {
     }
 
     @Override
-    public void glPixelStorei(int gl_unpack_alignment, int i) {
+    public int GL_UNPACK_SKIP_ROWS() {
+        return  com.jogamp.opengl.GL2ES2.GL_UNPACK_SKIP_ROWS;
+    }
 
+    @Override
+    public int GL_UNPACK_SKIP_PIXELS() {
+        return  com.jogamp.opengl.GL2ES2.GL_UNPACK_SKIP_PIXELS;
+    }
+
+    @Override
+    public int GL_UNPACK_ROW_LENGTH() {
+        return  com.jogamp.opengl.GL2ES2.GL_UNPACK_ROW_LENGTH;
+    }
+
+    @Override
+    public void glPixelStorei(int gl_unpack_alignment, int i) {
+        gl.glPixelStorei(gl_unpack_alignment, i);
     }
 
     @Override
@@ -247,71 +250,71 @@ public class JoGL implements GL {
 
     @Override
     public GLProfile getGLProfile() {
-        return null;
+        return GLProfile.wrap(gl.getGLProfile());
     }
 
     @Override
     public void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, ByteBuffer buffer) {
-
+        gl.glTexImage2D(gl_texture_2D, i, i1, size, size1, i2, i3, gl_unsigned_byte, buffer);
     }
 
     @Override
     public void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, ByteBuffer wrap) {
-
+        gl.glTexSubImage2D(gl_texture_2D, i, x, y, width, height, format, gl_unsigned_byte, wrap);
     }
 
     @Override
     public void glGenerateMipmap(int gl_texture_2D) {
-
+        gl.glGenerateMipmap(gl_texture_2D);
     }
 
     @Override
     public boolean glIsEnabled(int gl_depth_test) {
-        return false;
+        return gl.glIsEnabled(gl_depth_test);
     }
 
     @Override
     public int GL_ONE() {
-        return 0;
+        return com.jogamp.opengl.GL.GL_ONE;
     }
 
     @Override
     public void glBlendFunc(int gl_one, int gl_one_minus_src_alpha) {
-
+        gl.glBlendFunc(gl_one, gl_one_minus_src_alpha);
     }
 
     @Override
     public RuntimeException newGLException(String log) {
-        return null;
+        return new GLException(log);
     }
 
     @Override
     public int GL_FLOAT() {
-        return 0;
+        return com.jogamp.opengl.GL.GL_FLOAT;
     }
 
     @Override
     public int GL_RGB() {
-        return 0;
+        return com.jogamp.opengl.GL.GL_RGB;
     }
 
     @Override
     public void glFlush() {
-
+        gl.glFlush();
     }
 
     @Override
     public int GL_TRIANGLES() {
-        return 0;
+        return com.jogamp.opengl.GL.GL_TRIANGLES;
     }
 
     @Override
     public void glClearColor(float i, float i1, float i2, float i3) {
-
+        gl.glClearColor(i, i1, i2, i3);
     }
 
     @Override
     public void glClear(int gl_color_buffer_bit) {
-
+        gl.glClear(gl_color_buffer_bit);
     }
 }

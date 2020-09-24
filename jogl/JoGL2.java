@@ -125,21 +125,6 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
         return com.jogamp.opengl.GL2.GL_TRANSFORM_BIT;
     }
 
-    @Override
-    public int GL_UNPACK_SKIP_ROWS() {
-        return  com.jogamp.opengl.GL2.GL_UNPACK_SKIP_ROWS;
-    }
-
-    @Override
-    public int GL_UNPACK_SKIP_PIXELS() {
-        return  com.jogamp.opengl.GL2.GL_UNPACK_SKIP_PIXELS;
-    }
-
-    @Override
-    public int GL_UNPACK_ROW_LENGTH() {
-        return  com.jogamp.opengl.GL2.GL_UNPACK_ROW_LENGTH;
-    }
-
     public int GL_INTENSITY() {
         return com.jogamp.opengl.GL2.GL_INTENSITY;
     }

@@ -33,12 +33,6 @@ public interface GL2 extends GL, GL2GL3 {
 
     int GL_TRANSFORM_BIT();
 
-    int GL_UNPACK_SKIP_ROWS();
-
-    int GL_UNPACK_SKIP_PIXELS();
-
-    int GL_UNPACK_ROW_LENGTH();
-
     int GL_INTENSITY();
 
     int GL_LUMINANCE();
