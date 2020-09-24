@@ -6,7 +6,7 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
         return (com.jogamp.opengl.GL2)this.gl;
     }
 
-    public JoGL2(com.jogamp.opengl.GL gl) {
+    public JoGL2(com.jogamp.opengl.GL2 gl) {
         super(gl);
     }
 

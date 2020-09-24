@@ -4,7 +4,7 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-public interface GL2GL3 {
+public interface GL2GL3 extends GL {
     void glUseProgram(int program);
 
     void glDeleteProgram(int program);
@@ -72,4 +72,18 @@ public interface GL2GL3 {
     int glGetUniformLocation(int program, String name);
 
     void glUniform4fv(int location, int i, float[] value, int i1);
+
+    int GL_INFO_LOG_LENGTH();
+
+    void glGetShaderiv(int shaderObj, int gl_info_log_length, int[] infoLogLength, int i);
+
+    void glGetShaderInfoLog(int shaderObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2);
+
+    void glGetProgramiv(int programObj, int gl_info_log_length, int[] infoLogLength, int i);
+
+    void glGetProgramInfoLog(int programObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2);
+
+    boolean glIsProgram(int programObj);
+
+    void glDetachShader(int program, int i);
 }

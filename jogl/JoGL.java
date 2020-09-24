@@ -10,8 +10,29 @@ public class JoGL implements GL {
         this.gl = gl;
     }
 
-    static GL wrap(com.jogamp.opengl.GL gl) {
+    public static GL wrap(com.jogamp.opengl.GL gl) {
+        if (gl instanceof com.jogamp.opengl.GL3) {
+            return new JoGL3((com.jogamp.opengl.GL3)gl);
+        } else if (gl instanceof com.jogamp.opengl.GL2) {
+            return new JoGL2((com.jogamp.opengl.GL2)gl);
+        }
         return new JoGL(gl);
+    }
+
+    public static GL2 wrap(com.jogamp.opengl.GL2 gl) {
+        return new JoGL2(gl);
+    }
+
+    public static GL3 wrap(com.jogamp.opengl.GL3 gl) {
+        return new JoGL3(gl);
+    }
+
+    public static GL2GL3 wrap(com.jogamp.opengl.GL2GL3 gl) {
+        return new JoGL2GL3(gl);
+    }
+
+    public GL2ES2 jogl() {
+        return (GL2ES2)gl;
     }
 
     @Override
@@ -22,6 +43,16 @@ public class JoGL implements GL {
     @Override
     public GL3 getGL3() {
         return null;
+    }
+
+    @Override
+    public GL2GL3 getGL2GL3() {
+        return null;
+    }
+
+    @Override
+    public boolean isGL2GL3() {
+        return false;
     }
 
     @Override
@@ -37,6 +68,16 @@ public class JoGL implements GL {
     @Override
     public void glViewport(int i, int i1, int i2, int i3) {
         gl.glViewport(i, i1, i2, i3);
+    }
+
+    @Override
+    public int glGetError() {
+        return gl.glGetError();
+    }
+
+    @Override
+    public int GL_NO_ERROR() {
+        return com.jogamp.opengl.GL.GL_NO_ERROR;
     }
 
     @Override

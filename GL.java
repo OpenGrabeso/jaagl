@@ -5,6 +5,7 @@ import java.nio.ByteBuffer;
 public interface GL {
     GL2 getGL2();
     GL3 getGL3();
+    GL2GL3 getGL2GL3();
 
     GL3 gl3();
     GL2 gl2();
@@ -106,4 +107,10 @@ public interface GL {
     void glClear(int gl_color_buffer_bit);
 
     void glViewport(int i, int i1, int i2, int i3);
+
+    int glGetError();
+
+    int GL_NO_ERROR();
+
+    boolean isGL2GL3();
 }

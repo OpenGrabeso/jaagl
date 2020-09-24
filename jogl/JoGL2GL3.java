@@ -15,6 +15,16 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
     }
 
     @Override
+    public GL2GL3 getGL2GL3() {
+        return this;
+    }
+
+    @Override
+    public boolean isGL2GL3() {
+        return true;
+    }
+
+    @Override
     public int GL_VERTEX_SHADER() {
         return com.jogamp.opengl.GL2GL3.GL_VERTEX_SHADER;
     }
@@ -152,5 +162,40 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
     @Override
     public void glUniform4fv(int location, int i, float[] value, int i1) {
         ggl().glUniform4fv(location, i, value, i1);
+    }
+
+    @Override
+    public int GL_INFO_LOG_LENGTH() {
+        return com.jogamp.opengl.GL2ES2.GL_INFO_LOG_LENGTH;
+    }
+
+    @Override
+    public void glGetShaderiv(int shaderObj, int gl_info_log_length, int[] infoLogLength, int i) {
+        ggl().glGetShaderiv(shaderObj, gl_info_log_length, infoLogLength, i);
+    }
+
+    @Override
+    public void glGetShaderInfoLog(int shaderObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2) {
+        ggl().glGetShaderInfoLog(shaderObj, i, charsWritten, i1, infoLogBytes, i2);
+    }
+
+    @Override
+    public void glGetProgramiv(int programObj, int gl_info_log_length, int[] infoLogLength, int i) {
+        ggl().glGetProgramiv(programObj, gl_info_log_length, infoLogLength, i);
+    }
+
+    @Override
+    public void glGetProgramInfoLog(int programObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2) {
+        ggl().glGetProgramInfoLog(programObj, i, charsWritten, i1, infoLogBytes, i2);
+    }
+
+    @Override
+    public boolean glIsProgram(int programObj) {
+        return ggl().glIsProgram(programObj);
+    }
+
+    @Override
+    public void glDetachShader(int program, int i) {
+        ggl().glDetachShader(program, i);
     }
 }
