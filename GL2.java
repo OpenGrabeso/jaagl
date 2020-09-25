@@ -88,4 +88,14 @@ public interface GL2 extends GL, GL2GL3 {
     int GL_LINE_BIT();
 
     int GL_POINT_BIT();
+
+    void glColor4ub(byte b, byte b1, byte b2, byte b3);
+
+    void glRasterPos2i(int x2, int y2);
+
+    int GL_COLOR();
+
+    void glCopyPixels(int x1, int y1, int width, int height, int gl_color);
+
+    void glLoadMatrixf(float[] matrix, int i);
 }

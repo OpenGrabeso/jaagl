@@ -160,4 +160,8 @@ public interface GL {
     int GL_MULTISAMPLE();
 
     int GL_RGBA();
+
+    void glScissor(int x, int i, int max, int max1);
+
+    int GL_ZERO();
 }

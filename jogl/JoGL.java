@@ -422,4 +422,14 @@ public abstract class JoGL implements GL {
     public int GL_RGBA() {
         return com.jogamp.opengl.GL.GL_RGBA;
     }
+
+    @Override
+    public void glScissor(int x, int i, int max, int max1) {
+        gl.glScissor(x, i, max, max1);
+    }
+
+    @Override
+    public int GL_ZERO() {
+        return com.jogamp.opengl.GL.GL_ZERO;
+    }
 }

@@ -174,7 +174,7 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
 
     @Override
     public void glDisableClientState(int gl_vertex_array) {
-
+        ggl().glDisableClientState(gl_vertex_array);
     }
 
     @Override
@@ -184,7 +184,7 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
 
     @Override
     public void glLineStipple(int i, short mask) {
-
+        ggl().glLineStipple(i, mask);
     }
 
     @Override
@@ -199,6 +199,31 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
 
     @Override
     public int GL_POINT_BIT() {
-        return 0;
+        return com.jogamp.opengl.GL2.GL_POINT_BIT;
+    }
+
+    @Override
+    public void glColor4ub(byte b, byte b1, byte b2, byte b3) {
+        ggl().glColor4ub(b, b1, b2, b3);
+    }
+
+    @Override
+    public void glRasterPos2i(int x2, int y2) {
+        ggl().glRasterPos2i(x2, y2);
+    }
+
+    @Override
+    public int GL_COLOR() {
+        return com.jogamp.opengl.GL2.GL_COLOR;
+    }
+
+    @Override
+    public void glCopyPixels(int x1, int y1, int width, int height, int gl_color) {
+        ggl().glCopyPixels(x1, y1, width, height, gl_color);
+    }
+
+    @Override
+    public void glLoadMatrixf(float[] matrix, int i) {
+        ggl().glLoadMatrixf(matrix, i);
     }
 }
