@@ -49,6 +49,11 @@ public abstract class JoGL implements GL {
     }
 
     @Override
+    public boolean isGL3() {
+        return getGL3() != null;
+    }
+
+    @Override
     public GL2 gl2() {
         return getGL2();
     }
@@ -246,11 +251,6 @@ public abstract class JoGL implements GL {
     @Override
     public int GL_DEPTH_BUFFER_BIT() {
         return com.jogamp.opengl.GL.GL_DEPTH_BUFFER_BIT;
-    }
-
-    @Override
-    public GLProfile getGLProfile() {
-        return GLProfile.wrap(gl.getGLProfile());
     }
 
     @Override

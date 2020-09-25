@@ -10,6 +10,8 @@ public interface GL {
     GL3 gl3();
     GL2 gl2();
 
+    boolean isGL3();
+
     boolean isExtensionAvailable(String name);
 
 
@@ -83,9 +85,6 @@ public interface GL {
 
     int GL_DEPTH_BUFFER_BIT();
 
-
-    GLProfile getGLProfile();
-
     void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, ByteBuffer buffer);
 
     void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, ByteBuffer wrap);
@@ -117,6 +116,4 @@ public interface GL {
     int glGetError();
 
     int GL_NO_ERROR();
-
-    boolean isGL2GL3();
 }

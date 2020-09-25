@@ -20,11 +20,6 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
     }
 
     @Override
-    public boolean isGL2GL3() {
-        return true;
-    }
-
-    @Override
     public int GL_VERTEX_SHADER() {
         return com.jogamp.opengl.GL2GL3.GL_VERTEX_SHADER;
     }
