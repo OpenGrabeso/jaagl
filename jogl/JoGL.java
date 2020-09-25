@@ -2,7 +2,7 @@ package com.github.opengrabeso.jaagl.jogl;
 import com.github.opengrabeso.jaagl.*;
 import com.jogamp.opengl.GLException;
 
-import java.nio.ByteBuffer;
+import java.nio.Buffer;
 
 public abstract class JoGL implements GL {
     com.jogamp.opengl.GL gl;
@@ -71,6 +71,11 @@ public abstract class JoGL implements GL {
     @Override
     public int GL_NO_ERROR() {
         return com.jogamp.opengl.GL.GL_NO_ERROR;
+    }
+
+    @Override
+    public int GL_TRUE() {
+        return com.jogamp.opengl.GL.GL_TRUE;
     }
 
     @Override
@@ -259,12 +264,12 @@ public abstract class JoGL implements GL {
     }
 
     @Override
-    public void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, ByteBuffer buffer) {
+    public void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, Buffer buffer) {
         gl.glTexImage2D(gl_texture_2D, i, i1, size, size1, i2, i3, gl_unsigned_byte, buffer);
     }
 
     @Override
-    public void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, ByteBuffer wrap) {
+    public void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, Buffer wrap) {
         gl.glTexSubImage2D(gl_texture_2D, i, x, y, width, height, format, gl_unsigned_byte, wrap);
     }
 
@@ -321,5 +326,100 @@ public abstract class JoGL implements GL {
     @Override
     public void glClear(int gl_color_buffer_bit) {
         gl.glClear(gl_color_buffer_bit);
+    }
+
+    @Override
+    public int GL_LINEAR_MIPMAP_LINEAR() {
+        return com.jogamp.opengl.GL.GL_LINEAR_MIPMAP_LINEAR;
+    }
+
+    @Override
+    public int GL_CLAMP_TO_EDGE() {
+        return com.jogamp.opengl.GL.GL_CLAMP_TO_EDGE;
+    }
+
+    @Override
+    public int GL_TEXTURE_WRAP_S() {
+        return com.jogamp.opengl.GL.GL_TEXTURE_WRAP_S;
+    }
+
+    @Override
+    public int GL_TEXTURE_WRAP_T() {
+        return com.jogamp.opengl.GL.GL_TEXTURE_WRAP_T;
+    }
+
+    @Override
+    public int GL_TEXTURE_CUBE_MAP() {
+        return com.jogamp.opengl.GL.GL_TEXTURE_CUBE_MAP;
+    }
+
+    @Override
+    public int GL_TEXTURE_WRAP_R() {
+        return com.jogamp.opengl.GL2ES2.GL_TEXTURE_WRAP_R;
+    }
+
+    @Override
+    public int GL_GENERATE_MIPMAP() {
+        return com.jogamp.opengl.GL2ES1.GL_GENERATE_MIPMAP;
+    }
+
+    @Override
+    public void glTexParameterf(int gl_texture_env, int gl_texture_env_mode, float gl_blend) {
+        gl.glTexParameterf(gl_texture_env, gl_texture_env_mode, gl_blend);
+    }
+
+    @Override
+    public int GL_STATIC_DRAW() {
+        return com.jogamp.opengl.GL.GL_STATIC_DRAW;
+    }
+
+    @Override
+    public int GL_TRIANGLE_STRIP() {
+        return com.jogamp.opengl.GL.GL_TRIANGLE_STRIP;
+    }
+
+    @Override
+    public int GL_TRIANGLE_FAN() {
+        return com.jogamp.opengl.GL.GL_TRIANGLE_FAN;
+    }
+
+    @Override
+    public int GL_LINES() {
+        return com.jogamp.opengl.GL.GL_LINES;
+    }
+
+    @Override
+    public void glLineWidth(float glLineWidth) {
+        gl.glLineWidth(glLineWidth);
+    }
+
+    @Override
+    public void glGetFloatv(Object gl_modelview_matrix, float[] testMatrix, int i) {
+
+    }
+
+    @Override
+    public int GL_LINE_LOOP() {
+        return com.jogamp.opengl.GL.GL_LINE_LOOP;
+    }
+
+    @Override
+    public int GL_LINE_STRIP() {
+        return com.jogamp.opengl.GL.GL_LINE_STRIP;
+    }
+
+    @Override
+    public int GL_POINTS() {
+        return com.jogamp.opengl.GL.GL_POINTS;
+    }
+
+    @Override
+    public int GL_MULTISAMPLE() {
+        return com.jogamp.opengl.GL.GL_MULTISAMPLE;
+    }
+
+    @Override
+    public int GL_RGBA() {
+        return com.jogamp.opengl.GL.GL_RGBA;
     }
 }

@@ -1,6 +1,8 @@
 package com.github.opengrabeso.jaagl.jogl;
 import com.github.opengrabeso.jaagl.*;
 
+import java.nio.Buffer;
+
 public class JoGL2 extends JoGL2GL3 implements GL2 {
     private com.jogamp.opengl.GL2 ggl() {
         return (com.jogamp.opengl.GL2)this.gl;
@@ -49,6 +51,10 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
 
     public void glVertexPointer(int floatsPerPoint, int gl_float, int stride, int pointOffset) {
         ggl().glVertexPointer(floatsPerPoint, gl_float, stride, pointOffset);
+    }
+
+    public void glVertexPointer(int floatsPerPoint, int gl_float, int stride, Buffer buffer) {
+        ggl().glVertexPointer(floatsPerPoint, gl_float, stride, buffer);
     }
 
     public void glTexCoordPointer(int floatsPerCoord, int gl_float, int stride, int coordOffset) {
@@ -139,5 +145,60 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
 
     public int GL_LUMINANCE() {
         return com.jogamp.opengl.GL2.GL_LUMINANCE;
+    }
+
+    @Override
+    public void glBegin(int gl_quads) {
+        ggl().glBegin(gl_quads);
+    }
+
+    @Override
+    public void glTexCoord2f(float sx1, float sy2) {
+        ggl().glTexCoord2f(sx1, sy2);
+    }
+
+    @Override
+    public void glVertex2i(int dx1, int dy2) {
+        ggl().glVertex2i(dx1, dy2);
+    }
+
+    @Override
+    public void glEnd() {
+        ggl().glEnd();
+    }
+
+    @Override
+    public int GL_POLYGON() {
+        return com.jogamp.opengl.GL2.GL_POLYGON;
+    }
+
+    @Override
+    public void glDisableClientState(int gl_vertex_array) {
+
+    }
+
+    @Override
+    public int GL_LINE_STIPPLE() {
+        return com.jogamp.opengl.GL2.GL_LINE_STIPPLE;
+    }
+
+    @Override
+    public void glLineStipple(int i, short mask) {
+
+    }
+
+    @Override
+    public int GL_MODELVIEW_MATRIX() {
+        return com.jogamp.opengl.GL2.GL_MODELVIEW_MATRIX;
+    }
+
+    @Override
+    public int GL_LINE_BIT() {
+        return com.jogamp.opengl.GL2.GL_LINE_BIT;
+    }
+
+    @Override
+    public int GL_POINT_BIT() {
+        return 0;
     }
 }

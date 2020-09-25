@@ -25,6 +25,8 @@ public interface GL2GL3 extends GL {
 
     int GL_FRAGMENT_SHADER();
 
+    int GL_GEOMETRY_SHADER();
+
     void glGenBuffers(int i, int[] handles, int i1);
 
     int GL_ARRAY_BUFFER();
@@ -86,4 +88,20 @@ public interface GL2GL3 extends GL {
     boolean glIsProgram(int programObj);
 
     void glDetachShader(int program, int i);
+
+    boolean glIsBuffer(int bufferId);
+
+    void glDisableVertexAttribArray(int vertCoordLocation);
+
+    void glUniform1i(int textureLocation, int unit);
+
+    void glUniform1f(int lineWidthLocation, float lineWidth);
+
+    int GL_GEOMETRY_INPUT_TYPE();
+
+    int GL_GEOMETRY_OUTPUT_TYPE();
+
+    int GL_GEOMETRY_VERTICES_OUT();
+
+    void glProgramParameteri(int programId, int gl_geometry_input_type, int gl_lines);
 }

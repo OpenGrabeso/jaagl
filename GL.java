@@ -1,6 +1,6 @@
 package com.github.opengrabeso.jaagl;
 
-import java.nio.ByteBuffer;
+import java.nio.Buffer;
 
 public interface GL {
     GL2 getGL2();
@@ -87,9 +87,9 @@ public interface GL {
 
     int GL_DEPTH_BUFFER_BIT();
 
-    void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, ByteBuffer buffer);
+    void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, Buffer buffer);
 
-    void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, ByteBuffer wrap);
+    void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, Buffer wrap);
 
     void glGenerateMipmap(int gl_texture_2D);
 
@@ -118,4 +118,46 @@ public interface GL {
     int glGetError();
 
     int GL_NO_ERROR();
+
+    int GL_TRUE();
+
+    int GL_LINEAR_MIPMAP_LINEAR();
+
+    int GL_CLAMP_TO_EDGE();
+
+    int GL_TEXTURE_WRAP_S();
+
+    int GL_TEXTURE_WRAP_T();
+
+    int GL_TEXTURE_CUBE_MAP();
+
+    int GL_TEXTURE_WRAP_R();
+
+    int GL_GENERATE_MIPMAP();
+
+    void glTexParameterf(int gl_texture_env, int gl_texture_env_mode, float gl_blend);
+
+    int GL_STATIC_DRAW();
+
+    int GL_TRIANGLE_STRIP();
+
+    int GL_LINES();
+
+    int GL_TRIANGLE_FAN();
+
+    void glLineWidth(float glLineWidth);
+
+    void glPointSize(float glLineWidth);
+
+    void glGetFloatv(Object gl_modelview_matrix, float[] testMatrix, int i);
+
+    int GL_LINE_LOOP();
+
+    int GL_LINE_STRIP();
+
+    int GL_POINTS();
+
+    int GL_MULTISAMPLE();
+
+    int GL_RGBA();
 }

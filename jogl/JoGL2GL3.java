@@ -29,6 +29,11 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
         return com.jogamp.opengl.GL2GL3.GL_FRAGMENT_SHADER;
     }
 
+    @Override
+    public int GL_GEOMETRY_SHADER() {
+        return com.jogamp.opengl.GL3ES3.GL_GEOMETRY_SHADER;
+    }
+
     public void glUseProgram(int program) {
         ggl().glUseProgram(program);
     }
@@ -145,6 +150,10 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
         ggl().glGenVertexArrays(i, handles, i1);
     }
 
+    public void glDisableVertexAttribArray(int vertCoordLocation) {
+        ggl().glDisableVertexAttribArray(vertCoordLocation);
+    }
+
     public void glDeleteVertexArrays(int i, int[] handles, int i1) {
         ggl().glDeleteVertexArrays(i, handles, i1);
     }
@@ -193,4 +202,47 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
     public void glDetachShader(int program, int i) {
         ggl().glDetachShader(program, i);
     }
+
+    @Override
+    public boolean glIsBuffer(int bufferId) {
+        return ggl().glIsBuffer(bufferId);
+    }
+
+
+    @Override
+    public void glUniform1i(int textureLocation, int unit) {
+        ggl().glUniform1i(textureLocation, unit);
+    }
+
+    @Override
+    public void glUniform1f(int lineWidthLocation, float lineWidth) {
+        ggl().glUniform1f(lineWidthLocation, lineWidth);
+    }
+
+    @Override
+    public int GL_GEOMETRY_INPUT_TYPE() {
+        return com.jogamp.opengl.GL3ES3.GL_GEOMETRY_INPUT_TYPE;
+    }
+
+    @Override
+    public int GL_GEOMETRY_OUTPUT_TYPE() {
+        return com.jogamp.opengl.GL3ES3.GL_GEOMETRY_OUTPUT_TYPE;
+    }
+
+    @Override
+    public int GL_GEOMETRY_VERTICES_OUT() {
+        return com.jogamp.opengl.GL3ES3.GL_GEOMETRY_OUTPUT_TYPE;
+    }
+
+    @Override
+    public void glProgramParameteri(int programId, int gl_geometry_input_type, int gl_lines) {
+        ggl().glProgramParameteri(programId, gl_geometry_input_type, gl_lines);
+    }
+
+    @Override
+    public void glPointSize(float glLineWidth) {
+        ggl().glPointSize(glLineWidth);
+    }
+
+
 }

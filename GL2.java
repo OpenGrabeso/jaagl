@@ -1,5 +1,7 @@
 package com.github.opengrabeso.jaagl;
 
+import java.nio.Buffer;
+
 public interface GL2 extends GL, GL2GL3 {
     int GL_LIGHTING();
 
@@ -57,9 +59,33 @@ public interface GL2 extends GL, GL2GL3 {
 
     void glVertexPointer(int floatsPerPoint, int gl_float, int stride, int pointOffset);
 
+    void glVertexPointer(int floatsPerPoint, int gl_float, int stride, Buffer buffer);
+
     void glTexCoordPointer(int floatsPerCoord, int gl_float, int stride, int coordOffset);
 
     int GL_QUADS();
 
     void glPopClientAttrib();
+
+    void glBegin(int gl_quads);
+
+    void glTexCoord2f(float sx1, float sy2);
+
+    void glVertex2i(int dx1, int dy2);
+
+    void glEnd();
+
+    int GL_POLYGON();
+
+    void glDisableClientState(int gl_vertex_array);
+
+    int GL_LINE_STIPPLE();
+
+    void glLineStipple(int i, short mask);
+
+    int GL_MODELVIEW_MATRIX();
+
+    int GL_LINE_BIT();
+
+    int GL_POINT_BIT();
 }
