@@ -21,6 +21,10 @@ public interface GL2 extends GL, GL2GL3 {
 
     void glOrtho(int i, int width, int i1, int height, int i2, int i3);
 
+    void glScalef(float x, float y, float z);
+
+    void glTranslatef(float x, float y, float z);
+
     void glPopMatrix();
 
     void glPopAttrib();

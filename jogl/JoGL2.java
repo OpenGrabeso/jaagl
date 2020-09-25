@@ -100,6 +100,14 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
         ggl().glOrtho(i, width, i1, height, i2, i3);
     }
 
+    public void glScalef(float x, float y, float z) {
+        ggl().glScalef(x, y, z);
+    }
+
+    public void glTranslatef(float x, float y, float z){
+        ggl().glTranslatef(x, y, z);
+    }
+
     public void glPopMatrix() {
         ggl().glPopMatrix();
     }
