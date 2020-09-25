@@ -27,6 +27,8 @@ public interface GL {
 
     int GL_TEXTURE();
 
+    int GL_VIEWPORT();
+
     void glDisable(int gl_lighting);
 
     void glEnable(int gl_blend);

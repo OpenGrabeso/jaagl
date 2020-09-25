@@ -109,6 +109,11 @@ public abstract class JoGL implements GL {
     }
 
     @Override
+    public int GL_VIEWPORT() {
+        return com.jogamp.opengl.GL.GL_VIEWPORT;
+    }
+
+    @Override
     public void glDisable(int par) {
         gl.glDisable(par);
     }
