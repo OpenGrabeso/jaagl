@@ -2,7 +2,7 @@ package com.github.opengrabeso.jaagl.jogl;
 import com.github.opengrabeso.jaagl.*;
 import com.jogamp.opengl.GLException;
 
-import java.nio.Buffer;
+import java.nio.ByteBuffer;
 
 public abstract class JoGL implements GL {
     com.jogamp.opengl.GL gl;
@@ -264,12 +264,12 @@ public abstract class JoGL implements GL {
     }
 
     @Override
-    public void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, Buffer buffer) {
+    public void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, ByteBuffer buffer) {
         gl.glTexImage2D(gl_texture_2D, i, i1, size, size1, i2, i3, gl_unsigned_byte, buffer);
     }
 
     @Override
-    public void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, Buffer wrap) {
+    public void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, ByteBuffer wrap) {
         gl.glTexSubImage2D(gl_texture_2D, i, x, y, width, height, format, gl_unsigned_byte, wrap);
     }
 

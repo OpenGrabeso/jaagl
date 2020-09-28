@@ -1,6 +1,6 @@
 package com.github.opengrabeso.jaagl;
 
-import java.nio.Buffer;
+import java.nio.ByteBuffer;
 
 public interface GL {
     GL2 getGL2();
@@ -87,9 +87,9 @@ public interface GL {
 
     int GL_DEPTH_BUFFER_BIT();
 
-    void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, Buffer buffer);
+    void glTexImage2D(int gl_texture_2D, int i, int i1, int size, int size1, int i2, int i3, int gl_unsigned_byte, ByteBuffer buffer);
 
-    void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, Buffer wrap);
+    void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, ByteBuffer wrap);
 
     void glGenerateMipmap(int gl_texture_2D);
 
