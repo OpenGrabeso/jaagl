@@ -2,7 +2,6 @@ package com.github.opengrabeso.jaagl.jogl;
 import com.github.opengrabeso.jaagl.*;
 
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 
 public class JoGL2GL3 extends JoGL implements GL2GL3 {
     private com.jogamp.opengl.GL2GL3 ggl() {
@@ -101,8 +100,9 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
         return ggl().glCreateShader(type);
     }
 
-    public void glShaderSource(int shader, int i, String[] strings, IntBuffer o) {
-        ggl().glShaderSource(shader, i, strings, o);
+    public void glShaderSource(int shader, String string) {
+        String[] strings = new String[]{string};
+        ggl().glShaderSource(shader, 1, strings, null);
     }
 
     public void glCompileShader(int shader) {

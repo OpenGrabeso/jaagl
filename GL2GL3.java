@@ -1,7 +1,6 @@
 package com.github.opengrabeso.jaagl;
 
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 
 public interface GL2GL3 extends GL {
     void glUseProgram(int program);
@@ -44,7 +43,7 @@ public interface GL2GL3 extends GL {
 
     int glCreateShader(int type);
 
-    void glShaderSource(int shader, int i, String[] strings, IntBuffer o);
+    void glShaderSource(int shader, String strings);
 
     void glCompileShader(int shader);
 

@@ -154,13 +154,13 @@ public abstract class JoGL implements GL {
     }
 
     @Override
-    public void glDeleteTextures(int i, int[] handles, int i1) {
-        gl.glDeleteTextures(i, handles, i1);
+    public void glDeleteTextures(int[] handles) {
+        gl.glDeleteTextures(handles.length, handles, 0);
     }
 
     @Override
-    public void glGenTextures(int i, int[] handles, int i1) {
-        gl.glGenTextures(i, handles, i1);
+    public void glGenTextures(int[] handles) {
+        gl.glGenTextures(handles.length, handles, 0);
     }
 
     @Override

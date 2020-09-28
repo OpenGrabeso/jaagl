@@ -43,9 +43,9 @@ public interface GL {
 
     void glBindTexture(int type, int handle);
 
-    void glDeleteTextures(int i, int[] handles, int i1);
+    void glDeleteTextures(int[] handles);
 
-    void glGenTextures(int i, int[] handles, int i1);
+    void glGenTextures(int[] handles);
 
     int GL_LINEAR();
 
