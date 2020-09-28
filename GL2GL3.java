@@ -77,11 +77,11 @@ public interface GL2GL3 extends GL {
 
     void glGetShaderiv(int shaderObj, int gl_info_log_length, int[] infoLogLength, int i);
 
-    void glGetShaderInfoLog(int shaderObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2);
+    String glGetShaderInfoLog(int shaderObj);
 
     void glGetProgramiv(int programObj, int gl_info_log_length, int[] infoLogLength, int i);
 
-    void glGetProgramInfoLog(int programObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2);
+    String glGetProgramInfoLog(int programObj);
 
     boolean glIsProgram(int programObj);
 

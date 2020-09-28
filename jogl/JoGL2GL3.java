@@ -178,8 +178,20 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
     }
 
     @Override
-    public void glGetShaderInfoLog(int shaderObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2) {
-        ggl().glGetShaderInfoLog(shaderObj, i, charsWritten, i1, infoLogBytes, i2);
+    public String glGetShaderInfoLog(int shaderObj) {
+
+        final int[] infoLogLength=new int[1];
+        ggl().glGetShaderiv(shaderObj, com.jogamp.opengl.GL2ES2.GL_INFO_LOG_LENGTH, infoLogLength, 0);
+
+        if(infoLogLength[0]==0) {
+            return "(no info log)";
+        } else {
+            final int[] charsWritten=new int[1];
+            final byte[] infoLogBytes = new byte[infoLogLength[0]];
+            ggl().glGetShaderInfoLog(shaderObj, infoLogLength[0], charsWritten, 0, infoLogBytes, 0);
+
+            return new String(infoLogBytes, 0, charsWritten[0]);
+        }
     }
 
     @Override
@@ -188,8 +200,20 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
     }
 
     @Override
-    public void glGetProgramInfoLog(int programObj, int i, int[] charsWritten, int i1, byte[] infoLogBytes, int i2) {
-        ggl().glGetProgramInfoLog(programObj, i, charsWritten, i1, infoLogBytes, i2);
+    public String glGetProgramInfoLog(int programObj) {
+        final int[] infoLogLength=new int[1];
+        ggl().glGetProgramiv(programObj, com.jogamp.opengl.GL2ES2.GL_INFO_LOG_LENGTH, infoLogLength, 0);
+
+        if(infoLogLength[0]==0) {
+            return "(no info log)";
+        } else {
+            final int[] charsWritten = new int[1];
+            final byte[] infoLogBytes = new byte[infoLogLength[0]];
+            ggl().glGetProgramInfoLog(programObj, infoLogLength[0], charsWritten, 0, infoLogBytes, 0);
+
+            return new String(infoLogBytes, 0, charsWritten[0]);
+        }
+
     }
 
     @Override
