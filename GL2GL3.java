@@ -1,6 +1,5 @@
 package com.github.opengrabeso.jaagl;
 
-import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
@@ -35,7 +34,7 @@ public interface GL2GL3 extends GL {
 
     void glBindBuffer(int gl_array_buffer, int vbo);
 
-    void glBufferData(int gl_array_buffer, int size, Buffer o, int gl_stream_draw);
+    void glBufferData(int gl_array_buffer, int size, FloatBuffer o, int gl_stream_draw);
 
     int GL_VALIDATE_STATUS();
 

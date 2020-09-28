@@ -1,7 +1,6 @@
 package com.github.opengrabeso.jaagl.jogl;
 import com.github.opengrabeso.jaagl.*;
 
-import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
@@ -82,7 +81,7 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
         ggl().glBindBuffer(gl_array_buffer, vbo);
     }
 
-    public void glBufferData(int gl_array_buffer, int size, Buffer o, int gl_stream_draw) {
+    public void glBufferData(int gl_array_buffer, int size, FloatBuffer o, int gl_stream_draw) {
         ggl().glBufferData(gl_array_buffer, size, o, gl_stream_draw);
     }
 
