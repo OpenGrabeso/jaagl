@@ -64,8 +64,8 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
         ggl().glDeleteShader(vs);
     }
 
-    public void glGenBuffers(int i, int[] handles, int i1) {
-        ggl().glGenBuffers(i, handles, i1);
+    public void glGenBuffers(int[] handles) {
+        ggl().glGenBuffers(handles.length, handles, 0);
     }
 
     public int GL_ARRAY_BUFFER() {
@@ -117,8 +117,8 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
         return com.jogamp.opengl.GL2ES1.GL_TEXTURE_COORD_ARRAY;
     }
 
-    public void glDeleteBuffers(int i, int[] handles, int i1) {
-        ggl().glDeleteBuffers(i, handles, i1);
+    public void glDeleteBuffers(int[] handles) {
+        ggl().glDeleteBuffers(handles.length, handles, 0);
     }
 
     public void glBufferSubData(int gl_array_buffer, int i, int sizeInBytes, FloatBuffer data) {

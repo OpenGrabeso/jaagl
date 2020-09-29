@@ -25,7 +25,7 @@ public interface GL2GL3 extends GL {
 
     int GL_GEOMETRY_SHADER();
 
-    void glGenBuffers(int i, int[] handles, int i1);
+    void glGenBuffers(int[] handles);
 
     int GL_ARRAY_BUFFER();
 
@@ -51,7 +51,7 @@ public interface GL2GL3 extends GL {
 
     int GL_TEXTURE_COORD_ARRAY();
 
-    void glDeleteBuffers(int i, int[] handles, int i1);
+    void glDeleteBuffers(int[] handles);
 
     void glBufferSubData(int gl_array_buffer, int i, int sizeInBytes, FloatBuffer data);
 
