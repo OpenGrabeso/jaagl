@@ -65,9 +65,9 @@ public interface GL2GL3 extends GL {
 
     void glVertexAttribPointer(int coordLoc, int floatsPerCoord, int gl_float, boolean b, int stride, int coordOffset);
 
-    void glGenVertexArrays(int i, int[] handles, int i1);
+    void glGenVertexArrays(int[] handles);
 
-    void glDeleteVertexArrays(int i, int[] handles, int i1);
+    void glDeleteVertexArrays(int[] handles);
 
     int glGetUniformLocation(int program, String name);
 

@@ -145,16 +145,16 @@ public class JoGL2GL3 extends JoGL implements GL2GL3 {
         ggl().glVertexAttribPointer(coordLoc, floatsPerCoord, gl_float, b, stride, coordOffset);
     }
 
-    public void glGenVertexArrays(int i, int[] handles, int i1) {
-        ggl().glGenVertexArrays(i, handles, i1);
+    public void glGenVertexArrays(int[] handles) {
+        ggl().glGenVertexArrays(handles.length, handles, 0);
     }
 
     public void glDisableVertexAttribArray(int vertCoordLocation) {
         ggl().glDisableVertexAttribArray(vertCoordLocation);
     }
 
-    public void glDeleteVertexArrays(int i, int[] handles, int i1) {
-        ggl().glDeleteVertexArrays(i, handles, i1);
+    public void glDeleteVertexArrays(int[] handles) {
+        ggl().glDeleteVertexArrays(handles.length, handles, 0);
     }
 
     @Override
