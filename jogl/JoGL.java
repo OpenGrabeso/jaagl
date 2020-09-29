@@ -204,9 +204,17 @@ public abstract class JoGL implements GL {
     }
 
     @Override
-    public void glGetIntegerv(int gl_max_texture_size, int[] size, int i) {
-        gl.glGetIntegerv(gl_max_texture_size, size, i);
+    public void glGetIntegerv(int name, int[] size) {
+        gl.glGetIntegerv(name, size, 0);
     }
+
+    @Override
+    public int glGetInteger(int name) {
+        int[] ret = new int[]{0};
+        gl.glGetIntegerv(name, ret, 0);
+        return ret[0];
+    }
+
 
     @Override
     public int GL_UNPACK_ALIGNMENT() {

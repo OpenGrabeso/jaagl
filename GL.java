@@ -63,7 +63,9 @@ public interface GL {
 
     int GL_MAX_TEXTURE_SIZE();
 
-    void glGetIntegerv(int gl_max_texture_size, int[] size, int i);
+    int glGetInteger(int gl_unpack_alignment);
+
+    void glGetIntegerv(int gl_max_texture_size, int[] size);
 
     int GL_UNPACK_ALIGNMENT();
 
