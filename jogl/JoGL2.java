@@ -163,6 +163,11 @@ public class JoGL2 extends JoGL2GL3 implements GL2 {
     }
 
     @Override
+    public void glVertex3f(float x, float y, float z) {
+        ggl().glVertex3f(x, y, z);
+    }
+
+    @Override
     public void glEnd() {
         ggl().glEnd();
     }
