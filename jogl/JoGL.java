@@ -11,7 +11,7 @@ public abstract class JoGL implements GL {
         this.gl = gl;
     }
 
-    public static GL wrap(com.jogamp.opengl.GL gl) {
+    public static GL2GL3 wrap(com.jogamp.opengl.GL gl) {
         if (gl instanceof com.jogamp.opengl.GL3) {
             return new JoGL3((com.jogamp.opengl.GL3)gl);
         } else if (gl instanceof com.jogamp.opengl.GL2) {
