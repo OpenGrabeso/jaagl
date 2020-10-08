@@ -32,6 +32,6 @@ public class LWGL3 extends LWGL2GL3 implements GL3 {
 
     @Override
     public int GL_RED() {
-        return com.jogamp.opengl.GL3.GL_RED;
+        return org.lwjgl.opengl.GL31.GL_RED;
     }
 }
