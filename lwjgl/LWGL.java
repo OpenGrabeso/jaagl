@@ -265,7 +265,7 @@ public abstract class LWGL implements GL {
             direct = buffer;
         } else {
             ByteBuffer b = ByteBuffer.allocateDirect(buffer.capacity());
-            b.put(buffer);
+            b.put(buffer.duplicate());
             b.flip();
             direct = b;
         }
