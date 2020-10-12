@@ -3,6 +3,7 @@ package com.github.opengrabeso.jaagl.lwjgl;
 import com.github.opengrabeso.jaagl.GL;
 import com.github.opengrabeso.jaagl.GL2;
 import com.github.opengrabeso.jaagl.GL3;
+import org.lwjgl.system.MemoryUtil;
 
 import java.nio.ByteBuffer;
 
@@ -260,17 +261,17 @@ public abstract class LWGL implements GL {
     @Override
     public void glTexSubImage2D(int gl_texture_2D, int i, int x, int y, int width, int height, int format, int gl_unsigned_byte, ByteBuffer buffer) {
 
-        ByteBuffer direct;
         if (buffer.isDirect()) {
-            direct = buffer;
+            org.lwjgl.opengl.GL11.glTexSubImage2D(gl_texture_2D, i, x, y, width, height, format, gl_unsigned_byte, buffer);
         } else {
-            ByteBuffer b = ByteBuffer.allocateDirect(buffer.capacity());
-            b.put(buffer.duplicate());
-            b.flip();
-            direct = b;
-        }
+            ByteBuffer direct = MemoryUtil.memAlloc(buffer.capacity());
+            direct.put(buffer.duplicate());
+            direct.flip();
 
-        org.lwjgl.opengl.GL11.glTexSubImage2D(gl_texture_2D, i, x, y, width, height, format, gl_unsigned_byte, direct);
+            org.lwjgl.opengl.GL11.glTexSubImage2D(gl_texture_2D, i, x, y, width, height, format, gl_unsigned_byte, direct);
+
+            MemoryUtil.memFree(direct);
+        }
     }
 
     @Override
