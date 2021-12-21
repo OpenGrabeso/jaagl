@@ -4,7 +4,7 @@ Java API agnostic GL - wrapper around LWJGL / JOGL so that projects can easily s
 ## No longer maintained
 
 This project is no longer maintained separately. It was integrated directly into https://github.com/OpenGrabeso/glg2d,
-which was the only project using it.
+which was the only project using it. You can find the recent version at https://github.com/OpenGrabeso/glg2d/tree/master/lib/src/main/java/com/github/opengrabeso/jaagl
 
 #### Design rationale
 
